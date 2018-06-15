@@ -32,7 +32,7 @@
             var providerId = authResult.additionalUserInfo.providerId;
             var operationType = authResult.operationType;
             // Do something with the returned AuthResult.
-            console.log("authResult:  ",authResult);
+            // console.log("authResult:  ",authResult);
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
             return true;
@@ -40,7 +40,7 @@
           signInSuccess: function(currentUser, credential, redirectUrl) {
              // This callback will be deprecated. `signInSuccessWithAuthResult` should
              // be used instead.
-             console.log("currentUser:  ",currentUser);
+            //  console.log("currentUser:  ",currentUser);
              // Do something.
              // Return type determines whether we continue the redirect automatically
              // or whether we leave that to developer to handle.
