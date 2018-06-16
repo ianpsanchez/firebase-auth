@@ -2,23 +2,33 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
-    <!-- *******************************************************************************************
-       * TODO(DEVELOPER): Paste the initialization snippet from:
-       * Firebase Console > Overview > Add Firebase to your web app. *
-       ***************************************************************************************** -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script> -->
-    <!-- <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script> -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    
+</head>
 
-    <!-- <script src="https://www.gstatic.com/firebasejs/ui/3.0.0/firebase-ui-auth__en.js"></script> -->
-    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/3.0.0/firebase-ui-auth.css" /> -->
-    <!-- FirebaseUI config. -->
-    <script src="https://www.gstatic.com/firebasejs/5.0/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css">
+<body>
+    <div id="login_stuff">
+        <!-- <input type="text" name="" id=""> -->
+        <input type="email" name="email" id="id_email"/>
+        <input type="password" name="password" id="id_password"/>
+        <button onclick="login()">LOGIN</button>
+    </div>
+    <div></div>
+    <div id="is_signed_in"></div>
+    <div id="not_signed_in"></div>
+    <div></div>
+    <div id="public_content"></div>
+    <div id="member_content"></div>
 
+    <div id="id_button"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script>
+        // Initialize Firebase
         var config = {
             apiKey: "AIzaSyAQtac_UMR5O5DxdsSlSKJTOXghT_lyLPI",
             authDomain: "gualafon-9f430.firebaseapp.com",
@@ -29,101 +39,8 @@
         };
         firebase.initializeApp(config);
     </script>
+    <script src="main.js"></script>
 
-
-
-
-
-    <script>
-        // var authResult;
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    var user = authResult.user;
-                    var credential = authResult.credential;
-                    var isNewUser = authResult.additionalUserInfo.isNewUser;
-                    var providerId = authResult.additionalUserInfo.providerId;
-                    var operationType = authResult.operationType;
-                    // Do something with the returned AuthResult.
-                    console.log("authResult:  ", authResult);
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-                },
-                signInSuccess: function (currentUser, credential, redirectUrl) {
-                    // This callback will be deprecated. `signInSuccessWithAuthResult` should
-                    // be used instead.
-                    //  console.log("currentUser:  ",currentUser);
-                    // Do something.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-                },
-                signInFailure: function (error) {
-                    // Some unrecoverable error occurred during sign-in.
-                    // Return a promise when error handling is completed and FirebaseUI
-                    // will reset, clearing any UI. This commonly occurs for error code
-                    // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
-                    // occurs. Check below for more details on this.
-                    return handleUIError(error);
-                },
-                uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
-            // Query parameter name for mode.
-            queryParameterForWidgetMode: 'mode',
-            // Query parameter name for sign in success url.
-            queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'landing.html',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                {
-                    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                    // Whether the display name should be displayed in the Sign Up page.
-                    requireDisplayName: true
-                }//,
-                //   {
-                //     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                //     // Invisible reCAPTCHA with image challenge and bottom left badge.
-                //     recaptchaParameters: {
-                //       type: 'image',
-                //       size: 'invisible',
-                //       badge: 'bottomleft'
-                //     }
-                //}
-            ],
-            // Terms of service url.
-            tosUrl: '<your-tos-url>'
-        };
-
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-        console.log("hi");
-        console.log("uiConfig-->" + uiConfig);
-        console.log("ui-->" + ui);
-        // console.log("authResult-->" + authResult);
-    </script>
-
-</head>
-
-<body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-    <h1>Get Local 4 you - Sign In</h1>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
-
-    <script></script>
 </body>
 
 </html>
