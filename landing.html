@@ -9,7 +9,24 @@
        * Firebase Console > Overview > Add Firebase to your web app. *
        ***************************************************************************************** -->
 
+    <script src="https://www.gstatic.com/firebasejs/5.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyAQtac_UMR5O5DxdsSlSKJTOXghT_lyLPI",
+            authDomain: "gualafon-9f430.firebaseapp.com",
+            databaseURL: "https://gualafon-9f430.firebaseio.com",
+            projectId: "gualafon-9f430",
+            storageBucket: "gualafon-9f430.appspot.com",
+            messagingSenderId: "944780830840"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script type="text/javascript">
+
+
         initApp = function () {
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
