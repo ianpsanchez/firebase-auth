@@ -14,6 +14,7 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/ui/3.0.0/firebase-ui-auth__en.js"></script> -->
     <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/3.0.0/firebase-ui-auth.css" /> -->
     <!-- FirebaseUI config. -->
+    <script src="https://www.gstatic.com/firebasejs/5.0/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
 
@@ -79,7 +80,7 @@
             queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: 'index.html',
+            signInSuccessUrl: 'landing.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
