@@ -24,9 +24,9 @@ function login() {
     var user_email = document.getElementById("id_email").value;
     var user_password = document.getElementById("id_password").value;
 
-    console.log("works");
-    console.log(user_email);
-    console.log(user_password);
+    // console.log("works");
+    // console.log(user_email);
+    // console.log(user_password);
 
 
     firebase.auth().signInWithEmailAndPassword(user_email, user_password).catch(function (error) {
@@ -34,6 +34,7 @@ function login() {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
+        window.alert("Error Message: " + error.code + "  " + error.message);
     });
 }
 
@@ -42,6 +43,20 @@ function logout() {
         // Sign-out successful.
       }).catch(function(error) {
         // An error happened.
+      });
+}
+
+function registerUser() {
+
+    var user_email_reg = document.getElementById("id_email-reg").value;
+    var user_password_reg = document.getElementById("id_password-reg").value;
+
+    firebase.auth().createUserWithEmailAndPassword(user_email_reg, user_password_reg).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+        window.alert("Error MSG: " + error.message);
       });
 }
 

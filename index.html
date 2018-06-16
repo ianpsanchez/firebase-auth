@@ -7,15 +7,20 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    
+
 </head>
 
 <body>
     <div id="login_stuff">
         <!-- <input type="text" name="" id=""> -->
-        <input type="email" name="email" id="id_email"/>
-        <input type="password" name="password" id="id_password"/>
+        <input type="email" name="email" id="id_email" placeholder="Email" />
+        <input type="password" name="password" id="id_password" placeholder="Password" />
         <button onclick="login()">LOGIN</button>
+    </div>
+    <div id="register_stuff">
+        <input type="email" name="email-reg" id="id_email-reg" placeholder="Email" />
+        <input type="password" name="password-reg" id="id_password-reg" placeholder="Password" />
+        <button onclick="registerUser()">REGISTER</button>
     </div>
     <div></div>
     <div id="is_signed_in"></div>
